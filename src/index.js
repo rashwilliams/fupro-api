@@ -14,10 +14,7 @@ dotenv.config();
 
 const PORT = 3001;
 
-const allowedOrigins = [
-  "http://localhost:3000",
-  "https://fupro-cndcrknh0-rashwilliams.vercel.app",
-];
+const allowedOrigins = ["http://localhost:3000", "https://fupro.vercel.app/"];
 
 const corsOption = {
   allowedHeaders: [
