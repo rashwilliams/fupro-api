@@ -39,7 +39,9 @@ const corsOption = {
 };
 
 mongoose
-  .connect(process.env.MONG0_URL)
+  .connect(
+    "mongodb+srv://rashwilliams:gaE5oG7hJy2Ssuye@cluster0.znwnjwz.mongodb.net/blogapp?retryWrites=true&w=majority"
+  )
   .then(console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));
 
