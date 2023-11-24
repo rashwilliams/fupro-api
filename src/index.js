@@ -14,7 +14,10 @@ dotenv.config();
 
 const PORT = 3001;
 
-const allowedOrigins = ["http://localhost:3000", "https://fupro.vercel.app/"];
+// const allowedOrigins = [
+//   "http://localhost:3000",
+//   "https://fupro.vercel.app/",
+// ];
 
 const corsOption = {
   allowedHeaders: [
@@ -36,9 +39,7 @@ const corsOption = {
 };
 
 mongoose
-  .connect(
-    "mongodb+srv://rashwilliams:gaE5oG7hJy2Ssuye@cluster0.znwnjwz.mongodb.net/blogapp?retryWrites=true&w=majority"
-  )
+  .connect(process.env.MONG0_URL)
   .then(console.log("Connected to MongoDB"))
   .catch((err) => console.log(err));
 
@@ -52,7 +53,7 @@ const storage = multer.diskStorage({
 });
 
 app.use(cookieParser());
-app.use(cors(corsOption));
+app.use(cors());
 app.use(express.json());
 
 app.use("/api/auth", authRoute);
